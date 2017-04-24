@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contacts.ContactServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace Contacts.Controllers
 {
     public class ContactsController : Controller
     {
+        ContactServiceClient proxy = new ContactServiceClient();
+
         // GET: Contacts
         public ActionResult Index()
         {
-            List<Contact> model = (List<Contact>) HttpContext.Application["Contacts"];
+            List<Contact> model = proxy.List();
             ViewBag.Message = "Set from Index action - Count:" + model.Count;
             return View(model);
         }
@@ -25,7 +28,7 @@ namespace Contacts.Controllers
 
         private Contact GetModel(int? id = null)
         {
-            var list = (List<Contact>)HttpContext.Application["Contacts"];
+            var list = proxy.List();
             ViewBag.List = list;
             var model = (id.HasValue) ? list.First(x => x.Id == id) : new Contact();
             return model;
@@ -46,9 +49,7 @@ namespace Contacts.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var list = (List<Contact>)HttpContext.Application["Contacts"];
-                    list.Add(contact);
-                    HttpContext.Application["Contacts"] = list;
+                    proxy.Insert(contact);
                     return RedirectToAction("Index");
                 }
                 return View(contact);
@@ -74,10 +75,7 @@ namespace Contacts.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var list = (List<Contact>)HttpContext.Application["Contacts"];
-                    list.Remove(list.First(x => x.Id == contact.Id));
-                    list.Add(contact);
-                    HttpContext.Application["Contacts"] = list;
+                    proxy.Update(id, contact);
                     return RedirectToAction("Index");
                 }
                 return View(contact);

@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts", "Contacts\Contacts.csproj", "{FFC626FE-F1CC-49BF-9C52-8912A5EDE76B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E207A23F-1826-45A5-B714-B6325ABC21DA} = {E207A23F-1826-45A5-B714-B6325ABC21DA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsService", "ContactsService\ContactsService.csproj", "{E207A23F-1826-45A5-B714-B6325ABC21DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{27AB3D36-BF7B-42A9-8082-8A1CF6C93A70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,14 @@ Global
 		{FFC626FE-F1CC-49BF-9C52-8912A5EDE76B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFC626FE-F1CC-49BF-9C52-8912A5EDE76B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFC626FE-F1CC-49BF-9C52-8912A5EDE76B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E207A23F-1826-45A5-B714-B6325ABC21DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E207A23F-1826-45A5-B714-B6325ABC21DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E207A23F-1826-45A5-B714-B6325ABC21DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E207A23F-1826-45A5-B714-B6325ABC21DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27AB3D36-BF7B-42A9-8082-8A1CF6C93A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27AB3D36-BF7B-42A9-8082-8A1CF6C93A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27AB3D36-BF7B-42A9-8082-8A1CF6C93A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27AB3D36-BF7B-42A9-8082-8A1CF6C93A70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
